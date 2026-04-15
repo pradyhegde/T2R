@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Theory to Reality (T2R)</title>
-  <meta name="description" content="Theory to Reality (T2R) connects engineering education with real-world industry knowledge through global expert-led sessions, practical insights, and career-oriented learning." />
+  <title>T2R | Theory to Reality</title>
+  <meta name="description" content="Theory to Reality (T2R) connects engineering students with real-world industry learning through expert-led sessions, project examples, and career guidance." />
   <style>
     :root {
-      --bg: #07111f;
-      --bg-soft: #0d1a2d;
-      --card: rgba(17, 31, 54, 0.78);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --text: #eaf2ff;
-      --muted: #a9bbd6;
-      --primary: #37b6ff;
-      --primary-2: #6ee7f9;
-      --accent: #8b5cf6;
-      --success: #22c55e;
-      --shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+      --bg: #f7f8f5;
+      --surface: #ffffff;
+      --surface-soft: #f1f5ef;
+      --border: #d9e3d8;
+      --text: #17211b;
+      --text-soft: #5d6b62;
+      --green: #1f6b43;
+      --green-dark: #155235;
+      --green-soft: #e5f1e9;
+      --green-soft-2: #edf6ef;
+      --shadow: 0 10px 30px rgba(18, 39, 25, 0.06);
       --radius-xl: 24px;
       --radius-lg: 18px;
-      --radius-md: 12px;
+      --radius-md: 14px;
       --max: 1180px;
     }
 
@@ -29,10 +29,7 @@
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(55, 182, 255, 0.14), transparent 32%),
-        radial-gradient(circle at top right, rgba(139, 92, 246, 0.14), transparent 28%),
-        linear-gradient(180deg, #07111f 0%, #091526 35%, #06101c 100%);
+      background: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
@@ -45,54 +42,20 @@
       margin: 0 auto;
     }
 
-    .glass {
-      background: var(--card);
-      backdrop-filter: blur(14px);
-      border: 1px solid var(--card-border);
-      box-shadow: var(--shadow);
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(55, 182, 255, 0.12);
-      border: 1px solid rgba(55, 182, 255, 0.22);
-      color: #dff4ff;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .section-title {
-      font-size: clamp(1.9rem, 3.6vw, 3rem);
-      line-height: 1.1;
-      margin: 0 0 14px;
-      letter-spacing: -0.03em;
-    }
-
-    .section-copy {
-      color: var(--muted);
-      max-width: 760px;
-      margin: 0 auto;
-      font-size: 1.02rem;
-    }
-
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(16px);
-      background: rgba(7, 17, 31, 0.62);
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      background: rgba(247, 248, 245, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
 
     .nav {
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 76px;
       gap: 20px;
     }
 
@@ -101,423 +64,541 @@
       align-items: center;
       gap: 12px;
       font-weight: 800;
-      letter-spacing: -0.02em;
     }
 
     .brand-mark {
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       border-radius: 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      box-shadow: 0 10px 24px rgba(55, 182, 255, 0.25);
-      color: white;
+      color: var(--green);
       font-weight: 900;
+      box-shadow: var(--shadow);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+    }
+
+    .brand-text strong {
+      font-size: 1.35rem;
+      color: var(--green);
+      letter-spacing: -0.03em;
+    }
+
+    .brand-text span {
+      font-size: 0.8rem;
+      letter-spacing: 0.22em;
+      color: var(--text-soft);
+      text-transform: uppercase;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
-      color: var(--muted);
-      font-weight: 600;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a {
+      color: var(--text-soft);
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: 12px;
+    }
 
-    .nav-actions {
+    .nav-links a.active,
+    .nav-links a:hover {
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .nav-user {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+    }
+
+    .nav-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #dce9df;
+      display: grid;
+      place-items: center;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .menu-btn {
+      display: none;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 10px 12px;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 40px 0;
+    }
+
+    .hero {
+      padding: 38px 0 42px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green-soft);
+      color: var(--green);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+      border: 1px solid #d6e7d8;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4.4rem);
+      line-height: 0.98;
+      margin: 0 0 18px;
+      letter-spacing: -0.05em;
+      max-width: 640px;
+    }
+
+    .hero h1 .green {
+      color: var(--green);
+    }
+
+    .hero p {
+      color: var(--text-soft);
+      max-width: 560px;
+      font-size: 1.04rem;
+      margin: 0 0 18px;
+    }
+
+    .bullet-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .bullet-badge {
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-soft);
+      font-size: 0.9rem;
+      box-shadow: var(--shadow);
+    }
+
+    .bullet-badge::before {
+      content: "●";
+      color: var(--green);
+      margin-right: 8px;
+      font-size: 0.75rem;
+    }
+
+    .hero-actions {
       display: flex;
       gap: 12px;
-      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 14px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 13px 20px;
-      border-radius: 14px;
-      border: 1px solid transparent;
+      gap: 8px;
+      padding: 13px 18px;
+      border-radius: 12px;
       font-weight: 700;
-      transition: 0.25s ease;
+      border: 1px solid transparent;
       cursor: pointer;
-      font-size: 0.98rem;
+      transition: 0.2s ease;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      background: var(--green);
       color: white;
-      box-shadow: 0 14px 34px rgba(55, 182, 255, 0.22);
+      box-shadow: 0 12px 24px rgba(31, 107, 67, 0.16);
     }
 
-    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+    }
 
     .btn-secondary {
-      background: rgba(255,255,255,0.04);
-      border-color: rgba(255,255,255,0.12);
+      background: var(--surface);
+      border-color: var(--border);
       color: var(--text);
     }
 
     .btn-secondary:hover {
-      background: rgba(255,255,255,0.08);
-      transform: translateY(-2px);
-    }
-
-    .menu-btn {
-      display: none;
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.12);
-      color: white;
-      padding: 10px 12px;
-      border-radius: 12px;
-      cursor: pointer;
-    }
-
-    .hero {
-      padding: 84px 0 48px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 34px;
-      align-items: center;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.6rem, 5.4vw, 5rem);
-      line-height: 0.98;
-      margin: 18px 0 20px;
-      letter-spacing: -0.05em;
-      max-width: 720px;
-    }
-
-    .hero h1 span {
-      background: linear-gradient(135deg, #ffffff 0%, #9fe8ff 38%, #b69cff 80%, #ffffff 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero p {
-      color: var(--muted);
-      font-size: 1.08rem;
-      max-width: 670px;
-      margin: 0 0 28px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 30px;
-    }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      max-width: 720px;
-    }
-
-    .stat {
-      padding: 18px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.035);
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 1.45rem;
-      margin-bottom: 6px;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 0.95rem;
+      background: var(--surface-soft);
     }
 
     .hero-card {
-      padding: 24px;
-      border-radius: var(--radius-xl);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
       position: relative;
     }
 
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: auto -10% -18% auto;
-      width: 180px;
-      height: 180px;
-      border-radius: 999px;
-      background: radial-gradient(circle, rgba(55,182,255,0.28), transparent 70%);
-      pointer-events: none;
+    .hero-image {
+      aspect-ratio: 1.18 / 0.8;
+      background:
+        linear-gradient(rgba(18, 48, 32, 0.12), rgba(18, 48, 32, 0.12)),
+        url('https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1400&q=80') center/cover;
+      position: relative;
     }
 
-    .feature-list {
+    .hero-card-topdots {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .hero-card-topdots span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.85);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      background: rgba(255, 255, 255, 0.24);
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(10px);
+      border-radius: 14px;
+      padding: 12px 14px;
+      color: white;
+    }
+
+    .hero-overlay small {
+      display: block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.92;
+      margin-bottom: 4px;
+    }
+
+    .section-label {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      border: 1px solid #d8e7d9;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      margin: 0 0 12px;
+    }
+
+    .section-copy {
+      color: var(--text-soft);
+      margin: 0 0 18px;
+      max-width: 680px;
+    }
+
+    .split {
       display: grid;
-      gap: 14px;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .list-checks {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 18px;
+      color: var(--text-soft);
+    }
+
+    .list-checks div::before {
+      content: '›';
+      color: var(--green);
+      font-weight: 800;
+      margin-right: 10px;
+    }
+
+    .card-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
       margin-top: 18px;
     }
 
-    .feature-item {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      padding: 14px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .feature-icon {
-      width: 42px;
-      height: 42px;
-      flex: 0 0 42px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, rgba(55,182,255,0.18), rgba(139,92,246,0.2));
-      font-size: 1.2rem;
-    }
-
-    section {
-      padding: 74px 0;
-    }
-
-    .section-head {
-      text-align: center;
-      margin-bottom: 34px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-
-    .card {
-      padding: 24px;
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.035);
+    .mini-card,
+    .process-card,
+    .gain-card,
+    .speaker,
+    .cta,
+    .section-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
       box-shadow: var(--shadow);
     }
 
-    .card h3 {
-      margin: 14px 0 10px;
-      font-size: 1.18rem;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
+    .mini-card {
+      padding: 18px;
+      min-height: 108px;
     }
 
     .mini-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 18px;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--green-soft-2);
+      color: var(--green);
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, rgba(55,182,255,0.16), rgba(139,92,246,0.18));
-      font-size: 1.35rem;
+      font-size: 1rem;
+      margin-bottom: 14px;
     }
 
-    .audience-card ul, .speaker-card ul {
-      padding-left: 18px;
-      margin: 14px 0 0;
-      color: var(--muted);
+    .mini-card strong,
+    .process-card strong,
+    .gain-card strong,
+    .speaker strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .muted { color: var(--text-soft); }
+
+    .process-stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .process-card {
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .process-no {
+      font-size: 2rem;
+      line-height: 1;
+      color: #cad8cc;
+      font-weight: 800;
+    }
+
+    .process-note {
+      color: var(--green);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .gain-card {
+      padding: 18px;
+      margin-top: 16px;
+    }
+
+    .gain-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .gain-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-soft);
+    }
+
+    .gain-item span {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--green);
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex: 0 0 22px;
+    }
+
+    .section-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .section-card {
+      padding: 20px;
     }
 
     .speaker-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      gap: 18px;
     }
 
     .speaker {
-      padding: 22px;
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
+      padding: 20px;
     }
 
     .speaker-top {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       margin-bottom: 12px;
     }
 
     .avatar {
-      width: 62px;
-      height: 62px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
       display: grid;
       place-items: center;
-      color: white;
+      background: var(--green-soft);
+      color: var(--green);
       font-weight: 800;
-      font-size: 1.15rem;
     }
 
     .speaker-role {
-      color: var(--primary-2);
+      color: var(--green);
+      font-size: 0.92rem;
       font-weight: 600;
-      font-size: 0.93rem;
     }
 
     .pill-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
+      gap: 8px;
+      margin-top: 12px;
     }
 
     .pill {
-      padding: 8px 12px;
+      padding: 6px 10px;
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
       border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--muted);
-      font-size: 0.88rem;
+      color: var(--text-soft);
+      font-size: 0.82rem;
       font-weight: 600;
     }
 
-    .timeline {
+    .faq-list {
       display: grid;
-      gap: 16px;
-      margin-top: 30px;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 86px 1fr;
-      gap: 16px;
-      align-items: start;
-      padding: 18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .timeline-item strong {
-      color: var(--primary-2);
-      font-size: 1rem;
-    }
-
-    .testimonial {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .testimonial::after {
-      content: "“";
-      position: absolute;
-      top: 8px;
-      right: 18px;
-      font-size: 4rem;
-      color: rgba(255,255,255,0.08);
-      line-height: 1;
-    }
-
-    .testimonial p {
-      font-size: 1rem;
-      margin-bottom: 16px;
-    }
-
-    .name {
-      font-weight: 700;
-    }
-
-    .muted {
-      color: var(--muted);
+      gap: 12px;
     }
 
     .faq-item {
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.03);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
       overflow: hidden;
+      box-shadow: var(--shadow);
     }
 
     .faq-question {
       width: 100%;
-      background: transparent;
-      color: var(--text);
       border: 0;
+      background: transparent;
       text-align: left;
-      font-size: 1rem;
-      font-weight: 700;
-      padding: 20px 22px;
-      cursor: pointer;
+      padding: 18px 20px;
       display: flex;
       justify-content: space-between;
-      gap: 14px;
+      gap: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--text);
     }
 
     .faq-answer {
       display: none;
-      padding: 0 22px 20px;
-      color: var(--muted);
+      padding: 0 20px 18px;
+      color: var(--text-soft);
     }
 
     .faq-item.active .faq-answer { display: block; }
 
     .cta {
-      padding: 30px;
-      border-radius: 28px;
-      background:
-        radial-gradient(circle at top right, rgba(110,231,249,0.14), transparent 26%),
-        linear-gradient(135deg, rgba(55,182,255,0.12), rgba(139,92,246,0.16));
-      border: 1px solid rgba(255,255,255,0.09);
-      box-shadow: var(--shadow);
+      padding: 26px;
     }
 
     footer {
-      padding: 28px 0 46px;
-      color: var(--muted);
-      border-top: 1px solid rgba(255,255,255,0.07);
-      margin-top: 30px;
+      padding: 30px 0 48px;
+      border-top: 1px solid var(--border);
+      margin-top: 14px;
+      color: var(--text-soft);
     }
 
-    .footer-grid {
+    .footer-row {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
       align-items: center;
+      gap: 20px;
       flex-wrap: wrap;
     }
 
     .socials {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
     .socials a {
-      padding: 10px 14px;
+      padding: 10px 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 12px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
     }
 
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(20px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
     }
 
     .reveal.visible {
@@ -525,33 +606,27 @@
       transform: translateY(0);
     }
 
-    @media (max-width: 980px) {
+    @media (max-width: 1024px) {
       .hero-grid,
-      .grid-3,
-      .grid-2,
+      .split,
+      .section-grid-3,
       .speaker-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero-stats { grid-template-columns: 1fr; }
       .nav-links,
-      .nav-actions .btn-secondary {
+      .nav-user {
         display: none;
       }
+
       .menu-btn { display: inline-flex; }
     }
 
-    @media (max-width: 680px) {
-      .hero { padding-top: 58px; }
-      .timeline-item {
-        grid-template-columns: 1fr;
-      }
-      .cta {
-        padding: 22px;
-      }
-      .nav {
-        min-height: 68px;
-      }
+    @media (max-width: 700px) {
+      .card-grid-2 { grid-template-columns: 1fr; }
+      .process-card { grid-template-columns: 1fr; }
+      .hero { padding-top: 28px; }
+      .hero h1 { font-size: 2.4rem; }
     }
   </style>
 </head>
@@ -560,25 +635,28 @@
     <div class="container nav">
       <a href="#home" class="brand">
         <div class="brand-mark">T2R</div>
-        <div>
-          <div>Theory to Reality</div>
-          <small style="color: var(--muted); font-weight: 600;">Engineering learning with industry perspective</small>
+        <div class="brand-text">
+          <strong>T2R</strong>
+          <span>Theory to Reality</span>
         </div>
       </a>
 
       <nav class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#programs">Programs</a>
+        <a href="#home" class="active">Home</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#sessions">Sessions</a>
         <a href="#speakers">Speakers</a>
-        <a href="#process">How it Works</a>
-        <a href="#faq">FAQ</a>
+        <a href="#library">Library</a>
+        <a href="#about">About</a>
+        <a href="#admin">Admin</a>
       </nav>
 
-      <div class="nav-actions">
-        <a href="#contact" class="btn btn-secondary">Contact</a>
-        <a href="#contact" class="btn btn-primary">Book a Session</a>
-        <button class="menu-btn" id="menuBtn">☰</button>
+      <div class="nav-user">
+        <span>pradeep hegde</span>
+        <div class="nav-avatar">P</div>
       </div>
+
+      <button class="menu-btn" id="menuBtn">☰</button>
     </div>
   </header>
 
@@ -586,56 +664,44 @@
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div class="reveal">
-          <div class="badge">🌍 Global engineering insights for classrooms and careers</div>
-          <h1>Bringing <span>real-world engineering</span> into student learning.</h1>
+          <div class="brand" style="margin-bottom: 16px;">
+            <div class="brand-mark">T2R</div>
+            <div class="brand-text">
+              <strong>T2R</strong>
+              <span>Theory to Reality</span>
+            </div>
+          </div>
+
+          <div class="eyebrow">For engineering students globally</div>
+          <h1>
+            See What Your Engineering<br />
+            Career Actually Looks Like —<br />
+            <span class="green">Before You Graduate</span>
+          </h1>
+
+          <div class="bullet-badges">
+            <div class="bullet-badge">Used by students across multiple colleges</div>
+            <div class="bullet-badge">Speakers from across the globe</div>
+          </div>
+
           <p>
-            Theory to Reality (T2R) helps students, colleges, and young professionals connect academic concepts with practical industry experience through expert-led sessions, project-based examples, and career-focused learning.
+            Go beyond theory. Learn through real-world projects, industry tools, and expert-led sessions that show you what engineers actually do.
           </p>
 
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Get Started</a>
-            <a href="#about" class="btn btn-secondary">Explore T2R</a>
-          </div>
-
-          <div class="hero-stats">
-            <div class="stat">
-              <strong>Global</strong>
-              <span>Speakers and perspectives across industries and regions</span>
-            </div>
-            <div class="stat">
-              <strong>Practical</strong>
-              <span>Sessions built around real projects, tools, and job expectations</span>
-            </div>
-            <div class="stat">
-              <strong>Career-Focused</strong>
-              <span>Clear guidance on future paths in engineering and beyond</span>
-            </div>
+            <a href="#sessions" class="btn btn-primary">Explore Sessions →</a>
+            <a href="#colleges" class="btn btn-secondary">For Colleges</a>
           </div>
         </div>
 
-        <div class="hero-card glass reveal">
-          <div class="badge">Why students connect with T2R</div>
-          <div class="feature-list">
-            <div class="feature-item">
-              <div class="feature-icon">🎓</div>
-              <div>
-                <strong>Concept to application</strong>
-                <div class="muted">Understand how classroom topics are used in real engineering projects and business environments.</div>
-              </div>
+        <div class="hero-card reveal">
+          <div class="hero-image">
+            <div class="hero-card-topdots">
+              <span></span><span></span><span></span>
             </div>
-            <div class="feature-item">
-              <div class="feature-icon">🛠️</div>
-              <div>
-                <strong>Tools and workflows</strong>
-                <div class="muted">See the software, methods, and decision-making frameworks used by working professionals.</div>
-              </div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-icon">🚀</div>
-              <div>
-                <strong>Career direction</strong>
-                <div class="muted">Learn what companies expect, how to prepare, and where engineering careers can lead globally.</div>
-              </div>
+            <div class="hero-overlay">
+              <small>Engineering in action</small>
+              <div>Hydropower &amp; Civil Infrastructure</div>
             </div>
           </div>
         </div>
@@ -643,68 +709,117 @@
     </section>
 
     <section id="about">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="badge">About T2R</div>
-          <h2 class="section-title">From theory in the classroom to confidence in the real world</h2>
+      <div class="container split">
+        <div class="reveal">
+          <div class="section-label">What is T2R</div>
+          <h2 class="section-title">From Theory to Reality</h2>
           <p class="section-copy">
-            T2R is designed to help engineering education feel more relevant, more inspiring, and more connected to the real world. We bridge the gap between what students study and what professionals actually do in projects, design offices, plants, startups, and consulting environments.
+            Most students learn concepts — but never see how they are applied in real projects. Theory to Reality (T2R) bridges this gap.
           </p>
+          <p class="section-copy">
+            We connect classroom learning with real-world engineering applications, helping students understand:
+          </p>
+
+          <div class="list-checks">
+            <div>Where concepts are used</div>
+            <div>Which tools professionals use</div>
+            <div>What career paths actually look like</div>
+          </div>
+
+          <div class="card-grid-2">
+            <div class="mini-card">
+              <div class="mini-icon">◫</div>
+              <strong>Expert-led Sessions</strong>
+              <div class="muted">Live &amp; recorded</div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-icon">⌘</div>
+              <strong>6 Engineering Branches</strong>
+              <div class="muted">Across disciplines</div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-icon">◎</div>
+              <strong>Career Clarity</strong>
+              <div class="muted">Before graduation</div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-icon">⚡</div>
+              <strong>Industry Tools</strong>
+              <div class="muted">Real workflows</div>
+            </div>
+          </div>
         </div>
 
-        <div class="grid-3">
-          <div class="card reveal">
-            <div class="mini-icon">📘</div>
-            <h3>Academic relevance</h3>
-            <p>We explain how core engineering subjects connect directly to practical applications, industries, and future job roles.</p>
+        <div class="reveal">
+          <div class="section-label">Process</div>
+          <h2 class="section-title">How It Works</h2>
+
+          <div class="process-stack">
+            <div class="process-card">
+              <div class="process-no">01</div>
+              <div>
+                <strong>Choose Your Domain</strong>
+                <div class="muted">Mechanical, Civil, Electrical and more — aligned with your field of study.</div>
+                <div class="process-note">Start with subjects you already study</div>
+              </div>
+            </div>
+
+            <div class="process-card">
+              <div class="process-no">02</div>
+              <div>
+                <strong>Learn Through Real Projects</strong>
+                <div class="muted">Understand how core subjects are applied in actual industry projects.</div>
+                <div class="process-note">See theory come alive in real infrastructure</div>
+              </div>
+            </div>
+
+            <div class="process-card">
+              <div class="process-no">03</div>
+              <div>
+                <strong>Discover Tools &amp; Careers</strong>
+                <div class="muted">Explore the tools, skills, and career paths used by professionals.</div>
+                <div class="process-note">Know exactly where your skills lead</div>
+              </div>
+            </div>
           </div>
-          <div class="card reveal">
-            <div class="mini-icon">🌐</div>
-            <h3>Global perspective</h3>
-            <p>Students gain exposure to international project contexts, engineering standards, tools, and career pathways.</p>
-          </div>
-          <div class="card reveal">
-            <div class="mini-icon">💡</div>
-            <h3>Career clarity</h3>
-            <p>We help students understand industries, early-career expectations, higher studies options, and professional growth paths.</p>
+
+          <div class="gain-card">
+            <strong>✧ What You Gain</strong>
+            <div class="gain-list">
+              <div class="gain-item"><span>1</span> Clarity on career paths before graduation</div>
+              <div class="gain-item"><span>2</span> Exposure to real-world engineering projects</div>
+              <div class="gain-item"><span>3</span> Understanding of industry tools and workflows</div>
+              <div class="gain-item"><span>4</span> Confidence in choosing your specialization</div>
+              <div class="gain-item"><span>5</span> Guidance from experienced professionals</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="programs">
+    <section id="sessions">
       <div class="container">
-        <div class="section-head reveal">
-          <div class="badge">Programs</div>
-          <h2 class="section-title">Sessions built for students, colleges, and future engineers</h2>
-          <p class="section-copy">
-            T2R sessions are flexible and can be customized for institutions, student groups, departments, and specific engineering topics.
-          </p>
+        <div class="reveal" style="margin-bottom: 22px;">
+          <div class="section-label">From classroom to industry</div>
+          <h2 class="section-title">Session formats that feel practical, clear, and relevant</h2>
+          <p class="section-copy">These blocks are designed in the same visual direction as your Base44 homepage so the whole site feels consistent.</p>
         </div>
 
-        <div class="grid-2">
-          <div class="card audience-card reveal">
-            <div class="mini-icon">🏫</div>
-            <h3>For colleges and universities</h3>
-            <p>Structured sessions that enrich classroom learning with practical insight and industry connection.</p>
-            <ul>
-              <li>Expert-led topic sessions</li>
-              <li>Department-specific learning modules</li>
-              <li>Career awareness and future roadmap sessions</li>
-              <li>Interactive Q&amp;A with professionals</li>
-            </ul>
+        <div class="section-grid-3">
+          <div class="section-card reveal">
+            <div class="mini-icon">🎓</div>
+            <strong>Concept Sessions</strong>
+            <p class="muted">Show how topics from class connect with real engineering decisions, projects, and systems.</p>
           </div>
-
-          <div class="card audience-card reveal">
-            <div class="mini-icon">👩‍🎓</div>
-            <h3>For students and young professionals</h3>
-            <p>Guidance that helps learners move beyond theory and prepare for industry expectations.</p>
-            <ul>
-              <li>Real project case studies</li>
-              <li>Software and tool awareness</li>
-              <li>Industry role expectations</li>
-              <li>Global opportunities and higher studies direction</li>
-            </ul>
+          <div class="section-card reveal">
+            <div class="mini-icon">🛠</div>
+            <strong>Tool Awareness</strong>
+            <p class="muted">Introduce the software, methods, and workflows that graduates often encounter in industry.</p>
+          </div>
+          <div class="section-card reveal">
+            <div class="mini-icon">🌍</div>
+            <strong>Global Career View</strong>
+            <p class="muted">Help students understand jobs, higher studies, and international opportunities across engineering fields.</p>
           </div>
         </div>
       </div>
@@ -712,12 +827,10 @@
 
     <section id="speakers">
       <div class="container">
-        <div class="section-head reveal">
-          <div class="badge">Speakers</div>
-          <h2 class="section-title">Professionals who bring engineering experience to life</h2>
-          <p class="section-copy">
-            Add your own speaker details here later. For now, this section is ready with clean placeholder cards so you can update names, photos, countries, and expertise anytime.
-          </p>
+        <div class="reveal" style="margin-bottom: 22px;">
+          <div class="section-label">Speakers</div>
+          <h2 class="section-title">Professionals who make engineering feel real</h2>
+          <p class="section-copy">You can later replace the placeholders below with real speaker names, photos, countries, and experience.</p>
         </div>
 
         <div class="speaker-grid">
@@ -725,119 +838,72 @@
             <div class="speaker-top">
               <div class="avatar">PH</div>
               <div>
-                <strong>Pradeep Hegde</strong><br />
-                <span class="speaker-role">Engineering Projects &amp; Industry Applications</span>
+                <strong>Pradeep Hegde</strong>
+                <div class="speaker-role">Projects, Infrastructure &amp; Career Insight</div>
               </div>
             </div>
-            <p class="muted">Real-world insights into engineering design, project execution, technical decision-making, and global project environments.</p>
+            <div class="muted">Explains how engineering theory connects to real infrastructure projects, technical work, and career growth.</div>
             <div class="pill-row">
-              <span class="pill">Hydropower</span>
-              <span class="pill">Project Engineering</span>
-              <span class="pill">Career Guidance</span>
+              <div class="pill">Hydropower</div>
+              <div class="pill">Project Engineering</div>
+              <div class="pill">Student Guidance</div>
             </div>
           </div>
 
           <div class="speaker reveal">
             <div class="speaker-top">
-              <div class="avatar">AS</div>
+              <div class="avatar">SP</div>
               <div>
-                <strong>Speaker Name</strong><br />
-                <span class="speaker-role">Design / Manufacturing / R&amp;D</span>
+                <strong>Speaker Name</strong>
+                <div class="speaker-role">Design, Manufacturing &amp; Systems</div>
               </div>
             </div>
-            <p class="muted">Add speaker profile, experience summary, industry background, and student learning value in this section.</p>
+            <div class="muted">Use this block for a speaker from another branch who can explain tools, projects, and day-to-day industry work.</div>
             <div class="pill-row">
-              <span class="pill">Mechanical</span>
-              <span class="pill">Design Tools</span>
-              <span class="pill">Industry Practice</span>
+              <div class="pill">Mechanical</div>
+              <div class="pill">Design</div>
+              <div class="pill">Industry Practice</div>
             </div>
           </div>
 
           <div class="speaker reveal">
             <div class="speaker-top">
-              <div class="avatar">MK</div>
+              <div class="avatar">GL</div>
               <div>
-                <strong>Speaker Name</strong><br />
-                <span class="speaker-role">Global Industry Perspective</span>
+                <strong>Speaker Name</strong>
+                <div class="speaker-role">Global Engineering Perspective</div>
               </div>
             </div>
-            <p class="muted">Use this card for another speaker from a different domain, region, or career path to show T2R’s global and multidisciplinary reach.</p>
+            <div class="muted">Use this card for another expert and show that T2R brings voices from across the globe into student learning.</div>
             <div class="pill-row">
-              <span class="pill">Global Exposure</span>
-              <span class="pill">Innovation</span>
-              <span class="pill">Student Growth</span>
+              <div class="pill">Global Reach</div>
+              <div class="pill">Innovation</div>
+              <div class="pill">Careers</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="process">
+    <section id="library">
       <div class="container">
-        <div class="section-head reveal">
-          <div class="badge">How it Works</div>
-          <h2 class="section-title">A simple and effective learning format</h2>
-          <p class="section-copy">
-            T2R is designed to be easy for institutions to adopt and valuable for students from the very first session.
-          </p>
+        <div class="reveal" style="margin-bottom: 22px;">
+          <div class="section-label">Library</div>
+          <h2 class="section-title">Resources students can keep coming back to</h2>
         </div>
 
-        <div class="timeline">
-          <div class="timeline-item reveal">
-            <strong>Step 01</strong>
-            <div>
-              <h3>Select a theme or topic</h3>
-              <p class="muted">Choose a subject, department, career theme, or industry area that matches your students’ interests and curriculum.</p>
-            </div>
+        <div class="section-grid-3">
+          <div class="section-card reveal">
+            <strong>Recorded Sessions</strong>
+            <p class="muted">Store previous sessions for revision and continued learning.</p>
           </div>
-          <div class="timeline-item reveal">
-            <strong>Step 02</strong>
-            <div>
-              <h3>Schedule the session</h3>
-              <p class="muted">Coordinate a session format, duration, and audience type for an engaging and structured learning experience.</p>
-            </div>
+          <div class="section-card reveal">
+            <strong>Case Studies</strong>
+            <p class="muted">Short summaries of practical engineering examples across domains.</p>
           </div>
-          <div class="timeline-item reveal">
-            <strong>Step 03</strong>
-            <div>
-              <h3>Deliver practical insights</h3>
-              <p class="muted">Students experience real examples, industry tools, working methods, and practical discussions beyond textbooks.</p>
-            </div>
-          </div>
-          <div class="timeline-item reveal">
-            <strong>Step 04</strong>
-            <div>
-              <h3>Support growth and direction</h3>
-              <p class="muted">Sessions conclude with clearer career awareness, stronger motivation, and better understanding of future opportunities.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="testimonials">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="badge">Testimonials</div>
-          <h2 class="section-title">What this experience can feel like</h2>
-          <p class="section-copy">Replace these placeholders later with real student, faculty, or partner feedback.</p>
-        </div>
-
-        <div class="grid-3">
-          <div class="card testimonial reveal">
-            <p>"The session helped students finally understand how engineering concepts translate into actual industrial work and career possibilities."</p>
-            <div class="name">Faculty Coordinator</div>
-            <div class="muted">Partner Institution</div>
-          </div>
-          <div class="card testimonial reveal">
-            <p>"It was motivating to hear directly from someone working on real projects. The examples made learning feel much more meaningful."</p>
-            <div class="name">Student Participant</div>
-            <div class="muted">Engineering Department</div>
-          </div>
-          <div class="card testimonial reveal">
-            <p>"T2R brought clarity on tools, expectations, and the kind of mindset students need to build successful careers in engineering."</p>
-            <div class="name">Young Professional</div>
-            <div class="muted">Early Career Learner</div>
+          <div class="section-card reveal">
+            <strong>Career Notes</strong>
+            <p class="muted">Useful guidance on tools, skills, higher studies, and role expectations.</p>
           </div>
         </div>
       </div>
@@ -845,54 +911,37 @@
 
     <section id="faq">
       <div class="container">
-        <div class="section-head reveal">
-          <div class="badge">FAQ</div>
+        <div class="reveal" style="margin-bottom: 22px;">
+          <div class="section-label">FAQ</div>
           <h2 class="section-title">Common questions</h2>
         </div>
 
-        <div class="grid-2">
-          <div class="faq-item reveal active">
-            <button class="faq-question">Who is T2R for? <span>+</span></button>
-            <div class="faq-answer">T2R is designed for engineering students, institutions, and young professionals who want stronger connection between academic learning and real-world application.</div>
+        <div class="faq-list">
+          <div class="faq-item active reveal">
+            <button class="faq-question">Can this website look very close to Base44? <span>+</span></button>
+            <div class="faq-answer">Yes. This version already matches the white background, soft green accents, clean cards, pill labels, and homepage flow much more closely.</div>
           </div>
           <div class="faq-item reveal">
-            <button class="faq-question">Can sessions be customized? <span>+</span></button>
-            <div class="faq-answer">Yes. Sessions can be tailored to department, subject, student level, learning goal, or industry theme.</div>
+            <button class="faq-question">Can we later add real images and speaker photos? <span>+</span></button>
+            <div class="faq-answer">Yes. Replace the placeholder image URLs and avatar blocks with your own images anytime.</div>
           </div>
           <div class="faq-item reveal">
-            <button class="faq-question">Are the sessions online or offline? <span>+</span></button>
-            <div class="faq-answer">You can mention online, offline, or hybrid here based on how you want T2R to operate.</div>
-          </div>
-          <div class="faq-item reveal">
-            <button class="faq-question">How can a college collaborate with T2R? <span>+</span></button>
-            <div class="faq-answer">Institutions can contact T2R to discuss topics, audience size, schedule, and session format for collaboration.</div>
+            <button class="faq-question">Can GitHub host this static version free? <span>+</span></button>
+            <div class="faq-answer">Yes. A static HTML/CSS/JS site like this works well on GitHub Pages.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact">
+    <section id="colleges">
       <div class="container">
         <div class="cta reveal">
-          <div class="grid-2" style="align-items: center;">
-            <div>
-              <div class="badge">Let’s build something meaningful</div>
-              <h2 class="section-title" style="margin-top: 16px;">Bring T2R to your students or institution</h2>
-              <p class="section-copy" style="margin: 0; text-align: left; max-width: 100%;">
-                Ready to explore a session, speaker collaboration, or a customized learning experience? Update the contact details below with your real email, WhatsApp, LinkedIn, or enquiry form.
-              </p>
-            </div>
-            <div class="card" style="background: rgba(255,255,255,0.04);">
-              <h3 style="margin-top:0;">Contact Details</h3>
-              <p class="muted"><strong>Email:</strong> your@email.com</p>
-              <p class="muted"><strong>Website:</strong> yourdomain.com</p>
-              <p class="muted"><strong>WhatsApp:</strong> +00 00000 00000</p>
-              <p class="muted"><strong>LinkedIn:</strong> Add your profile link</p>
-              <div style="margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap;">
-                <a class="btn btn-primary" href="mailto:your@email.com">Email T2R</a>
-                <a class="btn btn-secondary" href="#home">Back to Top</a>
-              </div>
-            </div>
+          <div class="section-label">For colleges</div>
+          <h2 class="section-title">Bring T2R to your campus</h2>
+          <p class="section-copy">Update this block with your real email, WhatsApp, LinkedIn, or enquiry form. This is your action section for institutions and students.</p>
+          <div class="hero-actions">
+            <a href="mailto:your@email.com" class="btn btn-primary">Contact T2R</a>
+            <a href="#speakers" class="btn btn-secondary">View Speakers</a>
           </div>
         </div>
       </div>
@@ -900,10 +949,10 @@
   </main>
 
   <footer>
-    <div class="container footer-grid">
+    <div class="container footer-row">
       <div>
-        <strong>Theory to Reality (T2R)</strong><br />
-        <span>Connecting engineering education with real-world learning.</span>
+        <strong>T2R — Theory to Reality</strong><br />
+        <span>Connecting engineering learning with real-world understanding.</span>
       </div>
       <div class="socials">
         <a href="#">LinkedIn</a>
@@ -918,18 +967,14 @@
     const revealItems = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.12 });
-
     revealItems.forEach(item => observer.observe(item));
 
     document.querySelectorAll('.faq-question').forEach(button => {
       button.addEventListener('click', () => {
-        const item = button.parentElement;
-        item.classList.toggle('active');
+        button.parentElement.classList.toggle('active');
       });
     });
 
@@ -939,24 +984,26 @@
     menuBtn.addEventListener('click', () => {
       if (navLinks.style.display === 'flex') {
         navLinks.style.display = 'none';
-        navLinks.style.flexDirection = '';
         navLinks.style.position = '';
         navLinks.style.top = '';
         navLinks.style.left = '';
         navLinks.style.right = '';
-        navLinks.style.padding = '';
         navLinks.style.background = '';
+        navLinks.style.padding = '';
+        navLinks.style.border = '';
+        navLinks.style.borderRadius = '';
+        navLinks.style.flexDirection = '';
       } else {
         navLinks.style.display = 'flex';
         navLinks.style.flexDirection = 'column';
         navLinks.style.position = 'absolute';
-        navLinks.style.top = '76px';
+        navLinks.style.top = '74px';
         navLinks.style.left = '4%';
         navLinks.style.right = '4%';
-        navLinks.style.padding = '18px';
-        navLinks.style.background = 'rgba(7, 17, 31, 0.96)';
-        navLinks.style.border = '1px solid rgba(255,255,255,0.08)';
-        navLinks.style.borderRadius = '18px';
+        navLinks.style.background = '#ffffff';
+        navLinks.style.padding = '16px';
+        navLinks.style.border = '1px solid #d9e3d8';
+        navLinks.style.borderRadius = '16px';
       }
     });
   </script>
